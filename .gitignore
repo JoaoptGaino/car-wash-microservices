@@ -1,0 +1,27 @@
+# arquivos de compilação
+target/
+build/
+*.jar
+*.war
+*.ear
+
+# logs e arquivos gerados durante a execução
+log/
+logs/
+*.log
+*.out
+*.pid
+*.dump
+*.csv
+*.txt
+
+.idea/
+.vscode/
+.classpath
+.project
+.settings/
+*.iml
+*.ipr
+
+tmp/
+temp/
