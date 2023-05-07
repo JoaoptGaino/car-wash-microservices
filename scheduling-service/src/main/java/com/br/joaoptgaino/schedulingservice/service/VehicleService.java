@@ -11,9 +11,9 @@ public interface VehicleService {
 
     Page<VehicleDTO> findAll(Pageable pageable, VehicleParamsDTO paramsDTO);
 
-    VehicleDTO findByPlate(String plate);
+    VehicleDTO findOne(String plate);
 
-    VehicleDTO update(String plate);
+    VehicleDTO update(String plate, VehicleFormDTO data);
 
     void delete(String plate);
 }
