@@ -1,8 +1,8 @@
 package com.br.joaoptgaino.schedulingservice.controller;
 
-import com.br.joaoptgaino.schedulingservice.dto.VehicleDTO;
-import com.br.joaoptgaino.schedulingservice.dto.VehicleFormDTO;
-import com.br.joaoptgaino.schedulingservice.dto.VehicleParamsDTO;
+import com.br.joaoptgaino.schedulingservice.dto.vehicle.VehicleDTO;
+import com.br.joaoptgaino.schedulingservice.dto.vehicle.VehicleFormDTO;
+import com.br.joaoptgaino.schedulingservice.dto.vehicle.VehicleParamsDTO;
 import com.br.joaoptgaino.schedulingservice.service.VehicleService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

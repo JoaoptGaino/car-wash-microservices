@@ -1,4 +1,4 @@
-package com.br.joaoptgaino.schedulingservice.dto;
+package com.br.joaoptgaino.schedulingservice.dto.vehicle;
 
 import com.br.joaoptgaino.schedulingservice.constants.VehicleType;
 import jakarta.validation.constraints.NotBlank;
@@ -21,7 +21,6 @@ public class VehicleFormDTO {
     @NotNull(message = "model cannot be null")
     private String model;
 
-    @NotBlank(message = "vehicleType cannot be blank")
     @NotNull(message = "vehicleType cannot be null")
     private VehicleType vehicleType;
 
@@ -33,7 +32,6 @@ public class VehicleFormDTO {
     @NotNull(message = "color cannot be null")
     private String color;
 
-    @NotBlank(message = "year cannot be blank")
     @NotNull(message = "year cannot be null")
     private Integer year;
 

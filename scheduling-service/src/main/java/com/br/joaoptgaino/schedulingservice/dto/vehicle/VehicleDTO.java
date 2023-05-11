@@ -1,4 +1,4 @@
-package com.br.joaoptgaino.schedulingservice.dto;
+package com.br.joaoptgaino.schedulingservice.dto.vehicle;
 
 import com.br.joaoptgaino.schedulingservice.constants.VehicleType;
 import lombok.AllArgsConstructor;
