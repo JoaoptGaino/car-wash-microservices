@@ -37,12 +37,13 @@ public class SchedulingServiceImpl implements SchedulingService {
     public SchedulingDTO create(SchedulingFormDTO data) {
         Vehicle vehicle = getVehicleOrThrow(data.getVehiclePlate());
         Set<Department> departments = getDepartmentsOrThrow(data.getDepartmentIds());
-        Scheduling scheduling = Scheduling.builder()
+        Scheduling schedulingToCreate = Scheduling.builder()
                 .status(SchedulingStatus.TODO)
                 .date(new Date())
                 .vehicle(vehicle)
                 .department(departments)
                 .build();
+        Scheduling scheduling = schedulingRepository.save(schedulingToCreate);
         return modelMapper.map(scheduling, SchedulingDTO.class);
     }
 
@@ -67,7 +68,8 @@ public class SchedulingServiceImpl implements SchedulingService {
 
     @Override
     public List<SchedulingDTO> findVehicleScheduling(String plate) {
-        return schedulingRepository.findByVehiclePlate(plate);
+        List<SchedulingDTO> schedulings = schedulingRepository.findByVehiclePlate(plate).stream().map(scheduling -> modelMapper.map(scheduling, SchedulingDTO.class)).toList();
+        return schedulings;
     }
 
     private Scheduling getSchedulingOrThrow(UUID id) {

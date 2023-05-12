@@ -16,7 +16,6 @@ public class DepartmentFormDTO {
     @NotNull(message = "description cannot be null")
     private String description;
 
-    @NotBlank(message="price cannot be blank")
     @NotNull(message = "price cannot be null")
     private Double price;
 
