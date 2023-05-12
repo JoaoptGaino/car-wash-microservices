@@ -28,8 +28,7 @@ public class VehicleServiceImpl implements VehicleService {
 
     @Override
     public VehicleDTO create(VehicleFormDTO data) {
-        Vehicle vehicle = new Vehicle();
-        modelMapper.map(data, vehicle);
+        Vehicle vehicle = modelMapper.map(data, Vehicle.class);
         Vehicle createdVehicle = vehicleRepository.save(vehicle);
         log.info("Vehicle with plate {} created", data.getPlate());
         return modelMapper.map(createdVehicle, VehicleDTO.class);
