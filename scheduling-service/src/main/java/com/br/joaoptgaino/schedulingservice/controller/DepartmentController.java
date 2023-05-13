@@ -35,19 +35,19 @@ public class DepartmentController {
         return ResponseEntity.ok(departments);
     }
 
-    @GetMapping("/{plate}")
+    @GetMapping("/{id}")
     public ResponseEntity<DepartmentDTO> findOne(@PathVariable UUID id) {
         DepartmentDTO department = departmentService.findOne(id);
         return ResponseEntity.ok(department);
     }
 
-    @PutMapping("/{plate}")
+    @PutMapping("/{id}")
     public ResponseEntity<DepartmentDTO> update(@PathVariable UUID id, @Valid @RequestBody DepartmentFormDTO data) {
         DepartmentDTO department = departmentService.update(id, data);
         return ResponseEntity.ok(department);
     }
 
-    @DeleteMapping("/{plate}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable UUID id) {
         departmentService.delete(id);
         return ResponseEntity.noContent().build();
