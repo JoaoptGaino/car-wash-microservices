@@ -1,5 +1,6 @@
 package com.br.joaoptgaino.schedulingservice.dto.scheduling;
 
+import com.br.joaoptgaino.schedulingservice.constants.SchedulingStatus;
 import com.br.joaoptgaino.schedulingservice.model.Department;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,7 +21,7 @@ public class SchedulingDTO {
     private String vehiclePlate;
     private String vehicleModel;
     private Date date;
-    private String status;
+    private SchedulingStatus status;
     private Date createdAt;
     private Date updatedAt;
 }
