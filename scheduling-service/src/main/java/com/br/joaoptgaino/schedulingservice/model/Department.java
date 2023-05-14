@@ -1,6 +1,5 @@
 package com.br.joaoptgaino.schedulingservice.model;
 
-import com.br.joaoptgaino.schedulingservice.constants.VehicleType;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -11,34 +10,21 @@ import java.util.Date;
 import java.util.UUID;
 
 @Entity
-@Table(name = "vehicle")
+@Table(name = "department")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Vehicle implements Serializable {
+public class Department implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "id", nullable = false)
     private UUID id;
 
-    private String make;
+    private String description;
 
-    private String model;
-
-    @Column(name = "vehicle_type")
-    @Enumerated(EnumType.STRING)
-    private VehicleType vehicleType;
-
-    @Column(unique = true)
-    private String plate;
-
-    private String color;
-
-    private Integer year;
-
-    @Column(name = "user_id")
-    private UUID userId;
+    private Double price;
 
     @CreationTimestamp
     @Column(name = "created_at")

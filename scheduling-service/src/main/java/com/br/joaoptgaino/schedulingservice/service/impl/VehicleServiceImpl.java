@@ -1,8 +1,8 @@
 package com.br.joaoptgaino.schedulingservice.service.impl;
 
-import com.br.joaoptgaino.schedulingservice.dto.VehicleDTO;
-import com.br.joaoptgaino.schedulingservice.dto.VehicleFormDTO;
-import com.br.joaoptgaino.schedulingservice.dto.VehicleParamsDTO;
+import com.br.joaoptgaino.schedulingservice.dto.vehicle.VehicleDTO;
+import com.br.joaoptgaino.schedulingservice.dto.vehicle.VehicleFormDTO;
+import com.br.joaoptgaino.schedulingservice.dto.vehicle.VehicleParamsDTO;
 import com.br.joaoptgaino.schedulingservice.exceptions.BusinessException;
 import com.br.joaoptgaino.schedulingservice.model.Vehicle;
 import com.br.joaoptgaino.schedulingservice.repository.VehicleRepository;
@@ -18,7 +18,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -29,17 +28,10 @@ public class VehicleServiceImpl implements VehicleService {
 
     @Override
     public VehicleDTO create(VehicleFormDTO data) {
-        Vehicle vehicle = Vehicle.builder()
-                .make(data.getMake())
-                .model(data.getModel())
-                .vehicleType(data.getVehicleType())
-                .plate(data.getPlate())
-                .color(data.getColor())
-                .year(data.getYear())
-                .build();
-        vehicleRepository.save(vehicle);
+        Vehicle vehicle = modelMapper.map(data, Vehicle.class);
+        Vehicle createdVehicle = vehicleRepository.save(vehicle);
         log.info("Vehicle with plate {} created", data.getPlate());
-        return modelMapper.map(vehicle, VehicleDTO.class);
+        return modelMapper.map(createdVehicle, VehicleDTO.class);
     }
 
     @Override
@@ -54,7 +46,7 @@ public class VehicleServiceImpl implements VehicleService {
 
     @Override
     public VehicleDTO findOne(String plate) {
-        Vehicle vehicle = getVehicleOrThrow(plate);
+        Vehicle vehicle = this.getVehicleOrThrow(plate);
         log.info("Returned vehicle with plate: {}", plate);
         return modelMapper.map(vehicle, VehicleDTO.class);
     }
