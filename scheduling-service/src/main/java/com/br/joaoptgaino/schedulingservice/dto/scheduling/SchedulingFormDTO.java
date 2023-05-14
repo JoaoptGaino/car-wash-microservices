@@ -1,12 +1,10 @@
 package com.br.joaoptgaino.schedulingservice.dto.scheduling;
 
-import com.br.joaoptgaino.schedulingservice.constants.SchedulingStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -17,6 +15,4 @@ import java.util.UUID;
 public class SchedulingFormDTO {
     private List<UUID> departmentIds;
     private String vehiclePlate;
-    private Date date;
-    private SchedulingStatus status;
 }

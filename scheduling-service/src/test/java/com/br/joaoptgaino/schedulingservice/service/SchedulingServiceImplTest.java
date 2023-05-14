@@ -55,7 +55,7 @@ public class SchedulingServiceImplTest {
         Department department = getDepartmentEntity("Wash", 50.0);
         Vehicle vehicle = getVehicleEntity(2002, "Black", VehicleType.CAR, "ALL2A23", "Chevrolet", "Vectra");
         Scheduling scheduling = getSchedulingEntity(Set.of(department), vehicle, SchedulingStatus.TODO);
-        SchedulingFormDTO formDTO = getSchedulingFormDTO(List.of(commonSchedulingId), "ALL2A23", SchedulingStatus.TODO);
+        SchedulingFormDTO formDTO = getSchedulingFormDTO(List.of(commonSchedulingId), "ALL2A23");
         when(vehicleRepository.findByPlate("ALL2A23")).thenReturn(Optional.of(vehicle));
         when(departmentRepository.findById(any())).thenReturn(Optional.of(department));
         when(schedulingRepository.save(any())).thenReturn(scheduling);
@@ -67,7 +67,7 @@ public class SchedulingServiceImplTest {
     @Test
     public void createSchedulingShouldThrowVehicleNotFound() {
         when(vehicleRepository.findByPlate("ALL2A23")).thenReturn(Optional.empty());
-        SchedulingFormDTO formDTO = getSchedulingFormDTO(List.of(commonSchedulingId), "ALL2A23", SchedulingStatus.TODO);
+        SchedulingFormDTO formDTO = getSchedulingFormDTO(List.of(commonSchedulingId), "ALL2A23");
 
         assertThatThrownBy(() -> schedulingService.create(formDTO));
     }
@@ -76,7 +76,7 @@ public class SchedulingServiceImplTest {
     public void createSchedulingShouldThrowDepartmentNotFound() {
         Department department = getDepartmentEntity("Wash", 50.0);
         Vehicle vehicle = getVehicleEntity(2002, "Black", VehicleType.CAR, "ALL2A23", "Chevrolet", "Vectra");
-        SchedulingFormDTO formDTO = getSchedulingFormDTO(List.of(commonSchedulingId), "ALL2A23", SchedulingStatus.TODO);
+        SchedulingFormDTO formDTO = getSchedulingFormDTO(List.of(commonSchedulingId), "ALL2A23");
 
         when(vehicleRepository.findByPlate("ALL2A23")).thenReturn(Optional.of(vehicle));
         when(departmentRepository.findById(any())).thenReturn(Optional.empty());

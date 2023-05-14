@@ -36,12 +36,10 @@ public class SchedulingFixture {
                 .build();
     }
 
-    public static SchedulingFormDTO getSchedulingFormDTO(List<UUID> departmentIds, String vehiclePlate, SchedulingStatus status) {
+    public static SchedulingFormDTO getSchedulingFormDTO(List<UUID> departmentIds, String vehiclePlate) {
         return SchedulingFormDTO.builder()
                 .departmentIds(departmentIds)
-                .date(new Date())
                 .vehiclePlate(vehiclePlate)
-                .status(status)
                 .build();
     }
 
