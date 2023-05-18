@@ -7,7 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface VehicleService {
-    VehicleDTO create(VehicleFormDTO data);
+    VehicleDTO create(VehicleFormDTO data, String username);
 
     Page<VehicleDTO> findAll(Pageable pageable, VehicleParamsDTO paramsDTO);
 

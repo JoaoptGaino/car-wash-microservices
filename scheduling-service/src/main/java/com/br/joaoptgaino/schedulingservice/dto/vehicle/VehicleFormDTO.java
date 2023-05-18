@@ -35,4 +35,8 @@ public class VehicleFormDTO {
     @NotNull(message = "year cannot be null")
     private Integer year;
 
+    @NotBlank(message = "username cannot be blank")
+    @NotNull(message = "username cannot be null")
+    private String username;
+
 }
