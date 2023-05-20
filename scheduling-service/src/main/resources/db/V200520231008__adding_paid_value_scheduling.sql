@@ -1,0 +1,1 @@
+ALTER TABLE scheduling ADD COLUMN paid_value DOUBLE default 0.0;

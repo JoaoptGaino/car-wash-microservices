@@ -25,7 +25,7 @@ public class Scheduling implements Serializable {
     @Column(name = "id", nullable = false)
     private UUID id;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "scheduling_department", joinColumns = @JoinColumn(name = "scheduling_id"),
             inverseJoinColumns = @JoinColumn(name = "department_id"))
     private Set<Department> department = new HashSet<>();
@@ -35,6 +35,9 @@ public class Scheduling implements Serializable {
     private Vehicle vehicle;
 
     private Date date;
+
+    @Column(name = "paid_value")
+    private Double paidValue;
 
     @Column(name = "status")
     @Enumerated(EnumType.STRING)

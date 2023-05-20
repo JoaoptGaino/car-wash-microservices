@@ -14,6 +14,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
+
 @RestController
 @RequestMapping({"vehicles", "api/scheduling/vehicles"})
 @RequiredArgsConstructor
@@ -22,8 +24,8 @@ public class VehicleController {
     private final VehicleService vehicleService;
 
     @PostMapping
-    public ResponseEntity<VehicleDTO> create(@Valid @RequestBody VehicleFormDTO data) {
-        VehicleDTO vehicleDTO = vehicleService.create(data);
+    public ResponseEntity<VehicleDTO> create(@Valid @RequestBody VehicleFormDTO data, @RequestParam(name = "username") String username) {
+        VehicleDTO vehicleDTO = vehicleService.create(data, username);
         return ResponseEntity.status(HttpStatus.CREATED).body(vehicleDTO);
     }
 

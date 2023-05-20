@@ -1,0 +1,2 @@
+ALTER TABLE vehicle ALTER COLUMN user_id TYPE VARCHAR(255);
+ALTER TABLE vehicle RENAME COLUMN user_id TO username;
