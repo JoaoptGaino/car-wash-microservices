@@ -32,6 +32,9 @@ public class Transaction implements Serializable {
     @Enumerated(EnumType.STRING)
     private TransactionType transactionType;
 
+    @Column(name = "scheduling_id")
+    private UUID schedulingId;
+
     @CreationTimestamp
     @Column(name = "created_at")
     private Date createdAt;
